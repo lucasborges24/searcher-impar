@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --cor-primaria: #5F1478;
+    --cor-secundaria: #AE276F;
+}
+
 body {
     font-family: 'Mulish', sans-serif;
 }
