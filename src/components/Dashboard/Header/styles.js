@@ -6,6 +6,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top:0; left:0;
+  z-index: 1;
+
 `;
 
 export const Head = styled.header`
