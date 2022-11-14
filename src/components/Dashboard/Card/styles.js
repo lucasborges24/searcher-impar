@@ -69,4 +69,5 @@ export const Title = styled.div`
   color: #263238;
   opacity: 1;
   text-align: center;
+  text-transform: capitalize;
 `;
