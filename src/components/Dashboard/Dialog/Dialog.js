@@ -4,14 +4,20 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import { Box, Buttons, DialogSubTitle, DialogTitle, Img } from './styles';
 import { HorizontalBar } from '../../../utils/bars';
 import { buttonTheme } from '../../../utils/themes';
+import swal from 'sweetalert';
 
-export default function DialogBox({ type, isDialogOpen, setIsDialogOpen }) {
+export default function DialogBox({ type, isDialogOpen, setIsDialogOpen, setNewCard, title }) {
   const handleText = (type) => {
     if (type === 'delete') return 'excluir';
     return 'editar';
   };
-  const handleClose = () => {
+  const handleClose = (type, isCancel) => {
     setIsDialogOpen(false);
+    if (isCancel) return;
+    if (type === 'delete') {
+      swal('Calma!', 'Esta funcionalidade será implementada em breve!', 'info');
+      return;
+    }
     setNewCard({ ...open, openned: true, type: 'edit', title });
   };
 
@@ -20,7 +26,7 @@ export default function DialogBox({ type, isDialogOpen, setIsDialogOpen }) {
       <Box>
         <Img type={type}>
           {type === 'delete' ? (
-            <DeleteOutlineOutlinedIcon color={'error'} sx={{ fontSize: 75}} />
+            <DeleteOutlineOutlinedIcon color={'error'} sx={{ fontSize: 75 }} />
           ) : (
             <CreateOutlinedIcon color={'warning'} sx={{ fontSize: 75 }} />
           )}
