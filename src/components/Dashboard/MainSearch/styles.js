@@ -44,4 +44,11 @@ export const Cards = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  p {
+    font: normal normal 300 18px/23px Muli;
+    letter-spacing: 0px;
+    color: #757575;
+    opacity: 1;
+  }
 `;
