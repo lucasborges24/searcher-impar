@@ -6,7 +6,7 @@ import { useState } from 'react';
 import NewCard from '../NewCard/NewCard';
 
 export default function MainSearch() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState({ openned: false, type: '', title: '' });
   // const test = useRef(null);
   const arr = returnDataArr();
 
@@ -17,24 +17,29 @@ export default function MainSearch() {
           <NewCardButton>
             <p>Resultado de busca</p>
             <ThemeProvider theme={buttonTheme}>
-              <Button variant="contained" color="newCard" onClick={() => setOpen(true)} sx={{ borderRadius: 2 }}>
+              <Button
+                variant="contained"
+                color="newCard"
+                onClick={() => setOpen({ ...open, openned: true, type: 'create' })}
+                sx={{ borderRadius: 2 }}
+              >
                 Novo Card
               </Button>
 
               <Drawer
                 sx={{ bgcolor: '#F6F4F6CC' }}
                 anchor="right"
-                open={open}
-                onClose={() => setOpen(false)}
+                open={open.openned}
+                onClose={() => setOpen({ ...open, openned: false })}
                 SlideProps={{ direction: 'left' }}
               >
-                <NewCard />
+                <NewCard open={open} setOpen={setOpen} />
               </Drawer>
             </ThemeProvider>
           </NewCardButton>
           <Cards>
             {arr.results.map((item, i) => {
-              return <Card title={item.name} key={i} />;
+              return <Card title={item.name} key={i} setNewCard={setOpen} />;
             })}
           </Cards>
         </Content>

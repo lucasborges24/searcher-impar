@@ -12,6 +12,7 @@ export default function DialogBox({ type, isDialogOpen, setIsDialogOpen }) {
   };
   const handleClose = () => {
     setIsDialogOpen(false);
+    setNewCard({ ...open, openned: true, type: 'edit', title });
   };
 
   return (
@@ -35,7 +36,7 @@ export default function DialogBox({ type, isDialogOpen, setIsDialogOpen }) {
           <Button
             color={type === 'delete' ? 'error' : 'warning'}
             variant="contained"
-            onClick={handleClose}
+            onClick={() => handleClose(type)}
             sx={{ width: 165, height: 48, borderRadius: 2 }}
           >
             {handleText(type)}
@@ -43,7 +44,7 @@ export default function DialogBox({ type, isDialogOpen, setIsDialogOpen }) {
           <Button
             color={type === 'delete' ? 'error' : 'warning'}
             variant="outlined"
-            onClick={handleClose}
+            onClick={() => handleClose(type, true)}
             sx={{ width: 165, height: 48, borderRadius: 2 }}
           >
             Cancelar

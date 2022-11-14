@@ -7,7 +7,7 @@ import { VerticalBar, HorizontalBar } from '../../../utils/bars';
 import { useState } from 'react';
 import DialogBox from '../Dialog/Dialog';
 
-export default function Card({ title }) {
+export default function Card({ title, setNewCard }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [type, setType] = useState('');
 
@@ -38,7 +38,7 @@ export default function Card({ title }) {
           </Button>
         </ThemeProvider>
       </Buttons>
-      <DialogBox setIsDialogOpen={setIsDialogOpen} isDialogOpen={isDialogOpen} type={type} />
+      <DialogBox setIsDialogOpen={setIsDialogOpen} setNewCard={setNewCard} title={title} isDialogOpen={isDialogOpen} type={type} />
     </Container>
   );
 }
