@@ -1,11 +1,14 @@
-import { Button, ThemeProvider } from '@mui/material';
+import { Button, Drawer, ThemeProvider } from '@mui/material';
 import { buttonTheme } from '../../../utils/themes';
 import { Cards, Container, Content, NewCardButton } from './styles';
 import Card from '../Card/Card';
+import { useState } from 'react';
+import NewCard from '../NewCard/NewCard';
 
 export default function MainSearch() {
+  const [open, setOpen] = useState(false);
+  // const test = useRef(null);
   const arr = returnDataArr();
-  console.log(arr.results);
 
   return (
     <>
@@ -14,9 +17,19 @@ export default function MainSearch() {
           <NewCardButton>
             <p>Resultado de busca</p>
             <ThemeProvider theme={buttonTheme}>
-              <Button variant="contained" color="newCard">
+              <Button variant="contained" color="newCard" onClick={() => setOpen(true)} sx={{ borderRadius: 2 }}>
                 Novo Card
               </Button>
+
+              <Drawer
+                sx={{ bgcolor: '#F6F4F6CC' }}
+                anchor="right"
+                open={open}
+                onClose={() => setOpen(false)}
+                SlideProps={{ direction: 'left' }}
+              >
+                <NewCard />
+              </Drawer>
             </ThemeProvider>
           </NewCardButton>
           <Cards>

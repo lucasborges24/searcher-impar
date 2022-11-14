@@ -45,12 +45,6 @@ export const Buttons = styled.div`
   }
 `;
 
-export const VerticalBar = styled.div`
-  width: 2px;
-  height: 80%;
-  background-color: #f0eff0;
-`;
-
 export const Img = styled.div`
   width: 95px;
   height: 95px;
@@ -67,12 +61,6 @@ export const Img = styled.div`
   border: 1px solid #e4e4e4;
   border-radius: 50%;
   opacity: 1;
-`;
-export const HorizontalBar = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #f0eff0;
-  margin: 20px 0;
 `;
 
 export const Title = styled.div`

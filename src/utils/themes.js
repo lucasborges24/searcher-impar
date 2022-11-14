@@ -12,5 +12,10 @@ export const buttonTheme = createTheme({
       main: '#263238',
       contrastText: '#fff',
     },
+
+    chooseCard: {
+      main: '#FFFFFF',
+      contrastText: '#E76316',
+    },
   },
 });
