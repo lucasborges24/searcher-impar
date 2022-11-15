@@ -10,7 +10,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/card" element={<CardCreation />} />
           </Routes>
         </BrowserRouter>
       </SearchProvider>
