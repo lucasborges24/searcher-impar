@@ -23,6 +23,10 @@ export default function NewCard({ open, setOpen }) {
     swal('Calma!', 'Esta funcionalidade será implementada em breve', 'info');
   };
 
+  const handleChange = (event) => {
+    setCard({ ...card, image: event.target.files[0].name });
+  };
+
   return (
     <Container>
       <Content>
@@ -46,10 +50,10 @@ export default function NewCard({ open, setOpen }) {
           <UploadButtonAbsolute>
             <UploadButton>
               <label htmlFor="upload">Escolher arquivo</label>
-              <input accept="image/*" id="upload" multiple type="file" />
+              <input accept="image/*" id="upload" multiple type="file" onChange={handleChange} />
             </UploadButton>
           </UploadButtonAbsolute>
-          <p>Nenhum arquivo selecionado</p>
+          <p>{card.image === '' ? 'Nenhum arquivo selecionado' : card.image}</p>
         </Upload>
 
         <HorizontalBar width="100%"></HorizontalBar>
