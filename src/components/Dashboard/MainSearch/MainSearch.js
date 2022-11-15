@@ -93,7 +93,7 @@ export default function MainSearch() {
           pageStart={0}
           loadMore={loadFunc}
           hasMore={!pokeLoading && Boolean(pokeFiltered.next) && Boolean(!inputFilter)}
-          loader={<div key={0}>Loading ...</div>}
+          loader={<div key={0}>Carregando mais itens ...</div>}
         >
           <Cards>
             {pokeLoading ? (
