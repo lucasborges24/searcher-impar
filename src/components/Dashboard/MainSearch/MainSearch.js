@@ -35,7 +35,6 @@ export default function MainSearch() {
   const loadFunc = useCallback(async () => {
     if (inputFilter) {
       setPokeFiltered(filteredPokes(inputFilter?.toLowerCase(), pokeFiltered));
-      // setPage(0);
       return;
     }
     try {
@@ -43,7 +42,6 @@ export default function MainSearch() {
         setPokeFiltered({ ...pokes });
       } else {
         const { data } = await api.get(`https://pokeapi.co/api/v2/item?offset=${20 * page}&limit=${20}`);
-
         setPokeFiltered({ ...data, results: [...pokeFiltered.results, ...data.results] });
       }
       setPage(page + 1);

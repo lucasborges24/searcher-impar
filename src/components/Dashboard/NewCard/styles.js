@@ -58,19 +58,6 @@ export const CssTextField = styled(TextField)({
   },
 });
 
-// export const UploadButton = styled(Button)({
-//   '& .MuiButton-root': {
-//     '& 	.MuiButton-outlined': {
-//       borderColor: '#000000',
-//     },
-//   },
-//   '&': {
-//     position: 'absolute',
-//     top: '0',
-//     right: '0',
-//   },
-// });
-
 export const UploadButton = styled.div`
   position: relative;
   text-align: left;
@@ -82,7 +69,7 @@ export const UploadButton = styled.div`
   box-shadow: 0px 3px 6px #e763162e;
   border: 1px solid #e76316;
   border-radius: 8px;
-  width: 224px;
+  width: 100px;
   height: 48px;
   display: flex;
   align-items: center;
@@ -107,18 +94,41 @@ export const UploadButton = styled.div`
     cursor: pointer;
     font: normal normal bold 18px/23px Muli;
   }
+
+  @media (min-width: 642px) {
+    width: 224px;
+
+    input[type='file'] {
+      position: absolute;
+      z-index: -1;
+      width: 2px;
+    }
+
+    label {
+      text-align: center;
+      width: 100%;
+      cursor: pointer;
+      font: normal normal bold 18px/23px Muli;
+    }
+  }
 `;
 
 export const UploadButtonAbsolute = styled.div`
   position: absolute;
   top: 0.35em;
   right: 5px;
+  width: 100px;
+
+  @media (min-width: 642px) {
+    width: auto;
+  }
 `;
 
 export const Upload = styled.div`
   position: relative;
   width: 100%;
-  height: 60px;
+  min-height: 60px;
+  height: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #b9b9b9;
   border-radius: 8px;
@@ -133,6 +143,13 @@ export const Upload = styled.div`
     letter-spacing: 0px;
     color: #757575;
     opacity: 0.8;
+    width: 50%;
+  }
+
+  @media (min-width: 642px) {
+    p {
+      width: auto;
+    }
   }
 `;
 
