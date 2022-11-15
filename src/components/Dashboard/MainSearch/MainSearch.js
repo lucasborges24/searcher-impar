@@ -8,8 +8,23 @@ import usePoke from '../../../hooks/api/usePoke';
 
 export default function MainSearch() {
   const [open, setOpen] = useState({ openned: false, type: '', title: '' });
-  // const test = useRef(null);
-  const { pokes, pokeLoading } = usePoke();
+  const { pokes, pokeLoading } = usePoke(0, 20);
+  const { inputFilter, setInputFilter } = useContext(SearchContext);
+  const [pokeFiltered, setPokeFiltered] = useState([]);
+  const filteredPokes = (inputFilter, pokes) => {
+    if (!inputFilter) return pokes;
+    const filtered = pokes.results.filter((item) => {
+      const step = inputFilter.length;
+      const hashcuttedWords = {};
+      for (let i = 0; i <= item.name.length - step; i++) {
+        const cuttedWord = item.name.slice(i, step + i);
+        if (hashcuttedWords[cuttedWord]) continue;
+        hashcuttedWords[cuttedWord] = true;
+      }
+      return hashcuttedWords[inputFilter];
+    });
+    return { ...pokes, results: filtered };
+  };
 
   return (
     <Container>

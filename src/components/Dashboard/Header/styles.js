@@ -59,3 +59,14 @@ export const HeadSearcher = styled.div`
     background-repeat: round;
   }
 `;
+
+export const InputBase = styled.input`
+  width: 100%;
+  margin: 0 20px;
+  border: none;
+
+  :focus {
+    outline: none;
+  }
+
+`
